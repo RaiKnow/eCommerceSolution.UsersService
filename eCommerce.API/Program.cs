@@ -19,10 +19,19 @@ builder.Services.AddAutoMapper(typeof(ApplicationUserMappingProfile).Assembly);
 
 builder.Services.AddFluentValidationAutoValidation();
 
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
+
 var app = builder.Build();
 
 app.UseExceptionHandlingMiddleware();
 app.UseRouting();
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseCors();
 app.UseAuthorization();
 app.UseAuthorization();
 app.MapControllers();

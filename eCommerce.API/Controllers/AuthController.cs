@@ -17,7 +17,7 @@ namespace eCommerce.API.Controllers
         }
 
         [Route("[action]")]
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Register(RegisterRequest? registerRequest)
         {
             if (registerRequest == null)

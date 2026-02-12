@@ -34,7 +34,7 @@ namespace eCommerce.Infrastructure.Repositories
 
         public async Task<ApplicationUser?> GetUserByEmailAndPassword(string? email, string? password)
         {
-            string query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = @Email, \"Password\" = @Password";
+            string query = "SELECT * FROM public.\"Users\" WHERE \"Email\" = @Email AND \"Password\" = @Password";
             
             var parameters = new {Email = email, Password = password};
 
